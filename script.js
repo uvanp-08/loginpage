@@ -1,25 +1,29 @@
 document.getElementById('loginForm').addEventListener('submit', function(event) {
     event.preventDefault();
     
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-    const errorMessage = document.getElementById('errorMessage');
+    var email = document.getElementById('email').value;
+    var password = document.getElementById('password').value;
+    var errorMessage = document.getElementById('errorMessage');
 
     // Define valid credentials
     const validEmail = 'test@example.com';
     const validPassword = 'password123';
 
     // Validate email format
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailPattern.test(email)) {
-        errorMessage.textContent = 'Invalid email format.';
+	flag = false;
+	atChar = email.indexOf(email);
+	dotChar = email.indexOf(email);
+	spaceChar = email.indexOf(email);
+	if(atChar==-1 && dotChar==-1 && spaceChar>-1){
+		errorMessage.textContent = 'Invalid email format.';
         return;
-    }
+	}
 
     // Validate email and password
-    if (email === validEmail && password === validPassword) {
+    if (email == validEmail && password == validPassword) {
         window.location.href = 'welcome.html';
     } else {
         errorMessage.textContent = 'Invalid email or password.';
     }
 });
+
